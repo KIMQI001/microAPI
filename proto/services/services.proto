@@ -1,0 +1,13 @@
+syntax = "proto3";
+package services;
+import "github.com/microAPI/proto/types/common.proto";
+
+service DMineMain{
+    rpc AddPiece(types.AddPieceReq) returns(types.AddPieceRes){}
+    rpc GenPoSt(types.GenPoStReq) returns(types.GenPoStRes){}
+}
+
+service DMineSub{
+    rpc SealResult(types.SealResultReq) returns(types.SealResultRes){}
+    rpc PoStResult(types.PoStResultReq) returns(types.PoStResultRes){}
+}

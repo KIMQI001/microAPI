@@ -1,0 +1,41 @@
+syntax = "proto3";
+package types;
+
+message AddPieceReq{
+    bytes Ip = 1;
+}
+message AddPieceRes{
+    uint64 SectorId = 2;
+}
+message GenPoStReq{
+    bytes Ip = 1;
+    bytes Seed = 2;
+}
+message GenPoStRes{
+
+}
+message SealResultReq{
+    uint64 SectorID = 1;
+    uint32 SealStatusCode = 2;
+    string SealErrorMsg = 3;
+    bytes CommD = 4;
+    bytes CommR = 5;
+    bytes CommRStar = 6;
+    bytes Proof = 7;
+    repeated PieceMeta Pieces =8;
+}
+message PieceMeta{
+    string Key = 1;
+    uint64 Size = 2;
+    bytes InclusionProof = 3;
+    bytes CommP =4;
+}
+message SealResultRes{
+    bool Got = 1;
+}
+message PoStResultReq{
+    bytes Proof =1;
+}
+message PoStResultRes{
+    bool Got = 1;
+}

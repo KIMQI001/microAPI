@@ -34,7 +34,8 @@ message SealResultRes{
     bool Got = 1;
 }
 message PoStResultReq{
-    bytes Proof =1;
+    uint32 MachineID = 1;
+    bytes Proof = 2;
 }
 message PoStResultRes{
     bool Got = 1;

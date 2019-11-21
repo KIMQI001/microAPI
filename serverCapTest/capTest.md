@@ -4,5 +4,5 @@
     
     2.cd go-filecoin/tools/fast/bin/localnet
     ./localnet -small-sectors=false -miner-count=2 -blocktime=30s > localnet.log 2>&1 &
-    等待 
+    等待 localnet.log 最后出现ctrl-c 字样，通知我
 

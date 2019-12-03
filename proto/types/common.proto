@@ -20,7 +20,7 @@ message SealCommitReq{
     bytes ProverID = 3;
     bytes Tickets = 4;
     repeated PublicPieceInfo PubInfo = 5;
-    repeated PreCommitRes RawCommit = 6;
+    repeated PreResultReq RawCommit = 6;
 }
 message SealCommitRes{
 

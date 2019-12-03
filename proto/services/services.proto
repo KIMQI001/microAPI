@@ -1,13 +1,17 @@
 syntax = "proto3";
 package services;
-import "github.com/microAPI/proto/types/common.proto";
+import "github.com/filecoin-project/microAPI/proto/types/common.proto";
 
 service DMineMain{
-    rpc AddPiece(types.AddPieceReq) returns(types.AddPieceRes){}
+    rpc SealPreCommit(types.PreCommitReq) returns(types.PreCommitRes){}
+    rpc SealCommit(types.SealCommitReq) returns(types.SealCommitRes){}
+    rpc GenCandidates(types.CandidatesReq)returns(types.CandidatesRes){}
     rpc GenPoSt(types.GenPoStReq) returns(types.GenPoStRes){}
 }
 
 service DMineSub{
+    rpc SealPreResult(types.PreResultReq) returns(types.PreResultRes){}
     rpc SealResult(types.SealResultReq) returns(types.SealResultRes){}
+    rpc CanResult(types.CanResultReq) returns(types.CanResultRes){}
     rpc PoStResult(types.PoStResultReq) returns(types.PoStResultRes){}
 }

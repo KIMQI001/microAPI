@@ -1,12 +1,31 @@
 syntax = "proto3";
 package types;
 
-message AddPieceReq{
-    bytes Ip = 1;
+message PreCommitReq{
+    uint64 SecSize = 1;
+    uint64 SecID = 2;
+    bytes ProverID = 3;
+    bytes Tickets = 4;
+    repeated PublicPieceInfo PubInfo = 5;
 }
-message AddPieceRes{
-    uint64 SectorId = 2;
+message PublicPieceInfo{
+    uint64 Size = 1;
+    bytes CommP = 2;
 }
+message PreCommitRes{
+}
+message SealCommitReq{
+    uint64 SecSize = 1;
+    uint64 SecID = 2;
+    bytes ProverID = 3;
+    bytes Tickets = 4;
+    repeated PublicPieceInfo PubInfo = 5;
+    repeated PreCommitRes RawCommit = 6;
+}
+message SealCommitRes{
+
+}
+
 message GenPoStReq{
     bytes Ip = 1;
     bytes Seed = 2;
@@ -33,6 +52,43 @@ message PieceMeta{
 message SealResultRes{
     bool Got = 1;
 }
+
+message CandidatesReq{
+    uint64 SecSize = 1;
+    bytes ProverID = 2;
+    bytes Randomness = 3;
+    uint64 ClgCount = 4;
+}
+
+message CandidatesRes{
+    bool Got = 1;
+}
+
+message PreResultReq{
+    bytes CommC = 1;
+    bytes CommD = 2;
+    bytes CommR = 3;
+    bytes CommRLast = 4;
+}
+message PreResultRes{
+    bool Got = 1;
+}
+message SealResultReq{
+    bytes Proof = 1;
+}
+message SealResultRes{
+    bool Got = 1;
+}
+message CanResultReq{
+    uint64 SecID = 1;
+    bytes ParTicket = 2;
+    bytes Ticket = 3;
+    uint64 SecChaIndex = 4;
+}
+message CanResultRes{
+    bool Got = 1;
+}
+
 message PoStResultReq{
     uint32 MachineID = 1;
     bytes Proof = 2;

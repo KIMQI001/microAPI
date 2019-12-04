@@ -33,16 +33,7 @@ message GenPoStReq{
 message GenPoStRes{
 
 }
-message SealResultReq{
-    uint64 SectorID = 1;
-    uint32 SealStatusCode = 2;
-    string SealErrorMsg = 3;
-    bytes CommD = 4;
-    bytes CommR = 5;
-    bytes CommRStar = 6;
-    bytes Proof = 7;
-    repeated PieceMeta Pieces =8;
-}
+
 message PieceMeta{
     string Key = 1;
     uint64 Size = 2;
